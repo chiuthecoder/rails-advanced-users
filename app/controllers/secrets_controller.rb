@@ -30,7 +30,7 @@ class SecretsController < ApplicationController
 
   def destroy
     # user = User.find(secret_params[:id].to_i)
-    puts params[:id]
+    # puts params[:id]
     @secret = Secret.find(params[:id])
     @secret.destroy
     redirect_to '/secrets/new'

@@ -1,7 +1,9 @@
 class LikesController < ApplicationController
   def index
      @like = Like.all
-     counter = Like.where(user_id: like_params[:user_id]).count
+     # counter = Like.where(user_id: like_params[:user_id]).count
+     @counter = Like.where(user_id: like_params[:user_id]).count
+
   end
 
   def new
@@ -18,6 +20,7 @@ class LikesController < ApplicationController
   # end
 
   def show
+     @like = Like.all
   end
 
   def edit
@@ -27,6 +30,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
   end
 
   private
